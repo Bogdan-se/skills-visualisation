@@ -2,7 +2,7 @@ export const type = `
   type Skill {
     id: ID!
     name: String!
-    rating: Int!
+    strength: Int!
   }
 `;
 
@@ -12,7 +12,7 @@ export const query = `
 `;
 
 export const mutation = `
-  createSkill(name: String!, rating: Int!): Skill
-  updateSkill(id: ID!, name: String, rating: Int): Skill
+  createSkill(name: String!, strength: Int!): Skill
+  updateSkill(id: ID!, name: String, strength: Int): Skill
   deleteSkill(id: ID!): Skill
 `;

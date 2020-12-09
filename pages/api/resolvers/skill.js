@@ -10,12 +10,11 @@ export const query = {
 };
 
 export const mutation = {
-  createSkill: async (_, { name, rating }) => {
-    console.log({ name, rating });
-    return SkillDao.create({ name, rating });
+  createSkill: async (_, { name, strength }) => {
+    return SkillDao.create({ name, strength });
   },
-  updateSkill: (_, { id, name, rating }) => {
-    return SkillDao.update({ id, name, rating });
+  updateSkill: (_, { id, name, strength }) => {
+    return SkillDao.update({ id, name, strength });
   },
   deleteSkill: (_, { id }) => {
     return SkillDao.delete({ id });

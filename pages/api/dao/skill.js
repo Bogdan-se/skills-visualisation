@@ -7,15 +7,15 @@ export const SkillDao = {
   retrieve: ({ id }) => {
     return SkillModel.findById(id).exec();
   },
-  create: ({ name, rating }) => {
-    const skill = new SkillModel({ name, rating });
+  create: ({ name, strength }) => {
+    const skill = new SkillModel({ name, strength });
 
     return skill.save();
   },
-  update: ({ id, name, rating }) => {
+  update: ({ id, name, strength }) => {
     const update = {};
     if (name) update.name = name;
-    if (rating) update.rating = rating;
+    if (strength) update.strength = strength;
 
     return SkillModel.findByIdAndUpdate(id, update);
   },
