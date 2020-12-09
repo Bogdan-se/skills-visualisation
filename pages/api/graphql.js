@@ -1,13 +1,16 @@
 import { ApolloServer } from 'apollo-server-micro';
-import { schemas } from './schemas';
+import { typeDefs } from './schemas';
 import { resolvers } from './resolvers';
+import { dbConnect } from './model';
 
-const apolloServer = new ApolloServer({ schemas, resolvers });
+const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
 export const config = {
   api: {
     bodyParser: false,
   },
 };
+
+dbConnect();
 
 export default apolloServer.createHandler({ path: '/api/graphql' });

@@ -1,14 +1,18 @@
 import { gql } from 'apollo-server-micro';
+import {
+  type as skillType,
+  query as skillQuery,
+  mutation as skillMutation,
+} from './skill';
 
-export const schemas = gql`
-  type User {
-    id: ID
-    login: String
-    avatar_url: String
-  }
+export const typeDefs = gql`
+  ${skillType}
 
   type Query {
-    getUsers: [User]
-    getUser(name: String!): User!
+    ${skillQuery}
+  }
+  
+  type Mutation {
+    ${skillMutation}
   }
 `;
